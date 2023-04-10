@@ -1,0 +1,4 @@
+alsactl restore
+alsa force-reload
+pulseaudio -k && pulseaudio -D
+unmute thru entering alsamixer and going M
