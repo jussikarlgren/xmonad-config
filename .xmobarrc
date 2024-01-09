@@ -2,7 +2,7 @@ Config { overrideRedirect = False
        , font     = "xft:iosevka-9"
        , bgColor  = "#5f5f5f"
        , fgColor  = "#f8f8f2"
-       , position = TopW L 90
+       , position = TopW L 100
        , commands = [ Run Weather "ESSB" -- ESSB:Bromma EFHE:Hernesaari EFKU:Rissala
                         [ "--template", "<weather> <tempC>°C, <windMs> m/s <windCardinal>" 
                         , "-L", "0"
@@ -17,20 +17,19 @@ Config { overrideRedirect = False
                         , "--high"  , "red"
                         , "--normal", "green"
                         ] 10
-                    --, Run Brightness ["-t", "<bar>"] 60			
                     , Run Battery
 		    [
                          "-t", "<acstatus>: <left>% - <timeleft>",
                          "--",
                          --"-c", "charge_full",
                          "-O", "Charging",
-                         "-o", "Battery"
-                         --"--Low"      , "10"        -- units: % ,
-                         --"--High"     , "80"        -- units: % ,
-                         --"--low"      , "darkred",
-                         --"--normal"   , "darkorange",
-                         --"--high"     , "darkgreen"
-
+                         "-o", "Battery",
+                         "-L"      , "70",
+                         "-H"     , "80",
+                         "-l"      , "red",
+                         "-h"     , "darkgreen",
+			 --"-a", "bash /home/jik/.xmonad/suspend.sh",
+			 "--lows", "**** CONNNECT CHARGER ****   "
                         ] 10
                      , Run DiskU
                         [("/", "<used>/<size>"), ("/repository", "<used>/<size>")]
@@ -40,7 +39,7 @@ Config { overrideRedirect = False
                         [ "--template", "<volumestatus>"
                         , "--suffix"  , "True"
                         ]
-                    --, Run Wireless "wlp9s0" ["-t", "essid"] 10
+                    , Run Wireless "wlp0s20f3" ["--template", "Wifi: <ssid> [<qualitybar>]"] 10
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
                     --, Run Swap [] 10
                     , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
@@ -48,5 +47,5 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %battery% | Disk: %disku% | Vol: %alsa:default:Master% | %cpu% | %memory% | %ESSB%  | %wlp9s0% | %date% "
+       , template = "%XMonadLog% }{ %battery% | Disk: %disku% | Vol: %alsa:default:Master% | %cpu% | %memory% | %ESSB%  | %wlp0s20f3wi% | %date% "
        }

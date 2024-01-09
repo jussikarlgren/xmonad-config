@@ -1,0 +1,35 @@
+stack install xmonad
+stack install xmonad-contrib
+apt install xmobar
+apt install suckless-tools
+ghc-pkg recache
+xmonad --recompile
+hmmm
+
+
+add /usr/share/xsessions/xmonad.desktop
+
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=XMonad
+Comment=Lightweight tiling window manager
+Exec=xmonad
+Icon=xmonad.png
+Type=XSession
+
+
+add /usr/share/applications/xmonad.desktop
+
+[Desktop Entry]
+Type=Application
+Name=XMonad
+Exec=xmonad
+Encoding=UTF-8
+NoDisplay=true
+X-GNOME-WMName=Xmonad
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+X-GNOME-Autostart-Notify=false
+
+
