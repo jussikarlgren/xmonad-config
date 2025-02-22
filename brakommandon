@@ -1,0 +1,248 @@
+$ for i in 2021.q1 2021.q2 2021.q3 2021.q4; do echo $i; diff <(cd Desktop/mobilpix/$i && ls |sort) <(cd /Volumes/NetBackup/jussipilivi/permanent/Album/3.mobil/$i && ls| sort); done
+$ for i in 2021 2021.q1 2021.q2 2021.q3 2021.q4; do echo $i; diff <(cd Desktop/mobilpix/$i && find . |sort) <(cd /Volumes/NetBackup/jussipilivi/permanent/Album/3.mobil/$i && find .| sort); done
+
+
+
+
+nmcli dev wifi con "The Grand Guest Access"
+nmcli dev wifi list
+
+sudo apt-get install net-tools
+arp
+netstat
+jik@jik-x1:~$ nmap -sP 192.168.0.0/24
+
+
+
+xrandr --output eDP-1 --auto
+
+sudo arp-scan --localnet
+
+
+
+for ip in $(seq 1 254); do ping -c 1 192.168.1.$ip>/dev/null; 
+    [ $? -eq 0 ] && echo "192.168.1.$ip UP" || : ;
+done
+
+
+
+
+echo vm.swappiness=0 | sudo tee -a /etc/sysctl.conf
+
+
+xrandr -s 0
+xrandr --output eDP-1 --mode 2160x1350 --output DP-3 --right-of eDP-1 (taikka --same-as eDP-1)
+cups-browsed   # printer def
+system-config-printer 
+
+for i in {10..100..10}; do echo $i; done
+
+% https://devhints.io/bash
+
+cat facit|while read in; do a=( $in ); echo ${a[0]}; done
+
+cat facit|while read in; do ll=( $in ); qno=${ll[0]}; facit=${ll[1]}; echo $qno; grep "^$qno" ../2020/*|grep $facit|cut -f 6,4; done
+
+
+
+line number: nl (1)
+
+
+BASH PARAMETER SUBSTUTION
+tag bort filer med "Forwarded" och filer som heter liknande men slutar paa author: filnamn.txt.fdg filnamn.txt.author
+
+for i in ?/*g; do path=${i%/*} ; foo=`grep -l Forwarded $i `; if ([[ -n $foo ]])  ; then  rm $foo; rm ${foo%f*}author; fi;  done 
+
+Given:
+foo=/tmp/my.dir/filename.tar.gz
+We can use these expressions:
+path = ${foo%/*} To get: /tmp/my.dir (like dirname)
+file = ${foo##*/} To get: filename.tar.gz (like basename)
+base = ${file%%.*} To get: filename
+ext = ${file#*.} To get: tar.gz
+Note that the last two depend on the assignment made in the second one
+Here we notice two different "operators" being used inside the parameters (curly braces). Those are the # and the % operators. We also see them used as single characters and in pairs. This gives us four combinations for trimming patterns off the beginning or end of a string:
+${variable%pattern}  Trim the shortest match from the end
+${variable##pattern} Trim the longest match from the beginning
+${variable%%pattern} Trim the shortest match from the end
+${variable#pattern} Trim the shortest match from the beginning
+
+
+a4->letter pdf
+(  /usr/local/teTeX/share/texmf.local/pdftex/config on vesihiisi!)
+In pdftex.cfg ($TEXBASE/texmf/pdftex/config/pdftex.cfg) remove or modify the lines: 
+page_width  210truemm 
+page_height 297truemm 
+
+So that they correspond to your desired default pagesize. An example entry for letter sized paper would read: 
+
+page_width 8.5truein 
+page_height 11.0truein 
+
+
+
+montage -tile 7x1 cramer-img0033/cramer-img0033.jpeg cramer-img0032/cramer-img0032.jpeg cramer-img0031/cramer-img0031.jpeg cramer-img0030/cramer-img0030.jpeg cramer-1-16-cards/cramer-1-16-cards.jpeg cramer-img0029/cramer-img0029.jpeg cramer-img0028/cramer-img0028.jpeg jpeg:cramer-92.jpeg &
+
+grep -e'-)-' *   soek efter -)-
+grep -e'-[()]-' soek efter -)- el -(- 
+grep -e'-[^()]-' soek efter -*- utom -)- el -(- 
+
+soek efter '-*- #' daer # aer - eller < och * inter aer en av ao1)(
+grep -e'-[^ao1)(]- [-<]' hel.np 
+
+awk '{print $1, $2}' -F"skiljetecken" filnamn     filename
+
+skriv ut rader vars andra faelt inte innehaaller ':'
+awk '$2 !~ /:/ {print}' 
+
+summera foersta kolumnen i en fil
+ awk '{print x = x+$1}' < tb9293n.five
+
+skriv ut rader daer foerst faeltet foeraendrats jfrt med raden innan
+awk '$1 != prev { print; prev = $1 }'
+
+
+Raeknar ut korrkoff foer tvaa spalter i en fil
+awk '{x += $3; y += $12; xx += $3 * $3; yy += $12 * $12; xy += $3 * $12} END {print NR, x, y, xx, yy, xy, (NR * xy - x * y) / sqrt((NR * xx - x * x)*(NR * yy - y * y))}'
+
+numerisk sortering
+sort -n fil
+
+sortering av en fil efter tredje faeltet i lexikonordning
+sort -o outputfile +2 -3d
+
+while :; do for f in /usr/share/sounds/*.wav; do play $f; done; done &
+
+% enscript B tar bort oeverskriften 
+           R dont rotate, r rotate
+       
+%text
+enscript -1BR -fTimes-Roman7
+%program
+enscript -2r -fCourier8 
+%tabell
+enscript -1r -fCourier5
+
+xv -root  -quit annsmith2.gif
+xv -root -max -quit fn
+xv -root -wait 3 -wloop fn1 fn2 fn3
+
+stty rows n
+
+perl -e 'print reverse <>' FILENAME
+
+dosmount md fd0a ~/Diskett
+cp .....
+dosmount ud fd0a ~/Diskett
+dosmount e fd0a
+
+dvips -o fil -p fraansida -l tillsida
+
+dvips -r0 -f file.dvi | mail name@number.fax
+dvips -Pfax document.dvi | mail Bengt_Ahlgren@08-7517230.fax
+
+
+rsh nootka /usr/local/bin/saytime
+
+find /a/anhur/home1 -name .newsrc -exec cat ~/delimiter {} >> ~/IntFilter/newsrc/file \; -print
+
+vall
+lentsikkA
+
+salama
+Gtg...
+
+kielikone
+855chst.(melkein, ja isot alkuk)
+
+paeae
+SP-ETOTGOD-PISTESS
+
+sotajumala
+aehvatvo kaks dv
+
+
+
+
+
+> telnet sics.se smtp			# connect to sics.se
+Trying 192.16.123.90 ...
+Connected to brahma.
+Escape character is '^]'.
+220 sics.se Welcome to sendmail 5.65+bind 1.7+ida 1.4.2/SICS-1.4 at Fri, 18 Mar 94 16:41:15 +0100
+EXPN intint				# ask about ``intint''
+250-Catriona McDermid <catriona>
+250-Ivan Bretan <ivan>
+250-Annika Waern <annika>
+250-<"| /usr/local/lib/mail/asciify annalena">
+250-Kristina H||k <kia>
+250 Jussi Karlgren <jussi>
+
+HELP
+214-Commands:
+214-    HELO    MAIL    RCPT    DATA    RSET
+214-    NOOP    QUIT    HELP    VRFY    EXPN
+214-For more info use "HELP <topic>".
+214-To report bugs in the implementation contact sendmail@okeeffe.Berkeley.EDU
+214-For local information contact postmaster at this site.
+214 End of HELP info
+HELP MAIL
+214-MAIL FROM: <sender>
+214-    Specifies the sender.
+214 End of HELP info
+HELP RCPT
+214-RCPT TO: <recipient>
+214-    Specifies the recipient.  Can be used any number of times.
+214 End of HELP info
+HELP DATA
+214-DATA
+214-    Following text is collected as the message.
+214-    End with a single dot.
+214 End of HELP info
+
+MAIL FROM: jeltsin
+250 jeltsin... Sender ok
+RCPT TO: jussi
+250 jussi... Recipient ok
+DATA
+354 Enter mail, end with "." on a line by itself
+xorosjo, dorogoj kosmonavt
+.
+250 Ok
+QUIT
+221 sics.se closing connection
+Connection closed by foreign host.
+> 
+
+
+
+
+
+
+awk -F: '{print $5}' < /etc/passwd | grep -f /src/sysadm/GRUPPER | awk -F, '{print $1}' | sed 's/|/o/' | sed 's/{/a/' | sed 's/}/a/' 
+
+
+
+cat peptides.txt | while read line
+do
+   # do something with $line here
+done
+
+
+while read p; do
+  echo $p
+done < peptides.txt
+
+
+
+perl -ane '{ if(m/[[:^ascii:]]/) { print  } }' 
+
+(finds non-ascii characters!)
+
+gnome-tweaks
+sudo systemctl status bluetooth 
+enable
+start
+
+bluetoothctl pair FC:69:47:7C:9D:A3 (or connect if already known)
+rfkill unblock wifi

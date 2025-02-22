@@ -17,17 +17,16 @@ Config { overrideRedirect = False
                         , "--high"  , "red"
                         , "--normal", "green"
                         ] 10
-                    --, Run Brightness ["-t", "<bar>"] 60			
                     , Run Battery
 		    [
                          "-t", "<acstatus>: <left>% - <timeleft>",
                          "--",
                          "-O", "Charging",
                          "-o", "Battery",
-                         "-L"     , "20",
+                         "-L"      , "20",
                          "-H"     , "80",
                          "-l"      , "red",
-                         "--high"     , "darkgreen",
+                         "-high"     , "darkgreen",
 			 --"-a", "bash /home/jik/.xmonad/suspend.sh",
 			 "--lows", "**** CONNNECT CHARGER ****   "
                         ] 10

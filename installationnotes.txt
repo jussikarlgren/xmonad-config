@@ -1,0 +1,67 @@
+stack install xmonad
+stack install xmonad-contrib
+apt install xmobar
+apt install suckless-tools
+ghc-pkg recache
+xmonad --recompile
+hmmm
+
+
+add /usr/share/xsessions/xmonad.desktop
+
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=XMonad
+Comment=Lightweight tiling window manager
+Exec=xmonad
+Icon=xmonad.png
+Type=XSession
+
+
+add /usr/share/applications/xmonad.desktop
+
+[Desktop Entry]
+Type=Application
+Name=XMonad
+Exec=xmonad
+Encoding=UTF-8
+NoDisplay=true
+X-GNOME-WMName=Xmonad
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+X-GNOME-Autostart-Notify=false
+
+
+brakommandon
+shotwell - fix pics a little
+system-config-printer
+nautilus --no-desktop --browser
+pdftk file1.pdf file2.pdf cat output mergedfile.pdf
+feh --bg-scale permanent/illustrations/gjutjarn.jpg
+
+to enable projector:
+xrandr shows what displays there are
+
+xrandr --output eDP1 --mode 3200x1800 --output DP1 --scale-from 3200x1800 --same-as eDP1
+NetworkManager
+nmcli c radio wifi off / on
+nmcli c up hups
+nmcli setup: https://docs.fedoraproject.org/en-US/Fedora/25/html/Networking_Guide/sec-Connecting_to_a_Network_Using_nmcli.html
+nmcli con show
+nmcli dev status
+nmcli dev wifi list
+nmcli d wifi connect NEXTLEVEL_gavagai password HappyRabbit2017
+nmcli d wifi connect Verizon-MiFi7730L-9674 password 6c243054
+…
+nmcli con add con-name MyCafe ifname wlan0 type wifi ssid MyCafe
+mcli con modify MyCafe wifi-sec.key-mgmt wpa-psk
+nmcli con modify MyCafe wifi-sec.psk caffeine
+
+PANIC:
+drop into initramfs
+exit
+inspect to see what is wrong
+do fsck -y
+reboot
+
