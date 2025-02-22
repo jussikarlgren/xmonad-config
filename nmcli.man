@@ -2,3 +2,4 @@ nmcli dev wifi
 nmcli dev wifi con "Cafe Hotspot 1" password caffeine name "My cafe"
 
 nmcli con up id "My cafe"
+nmcli con show

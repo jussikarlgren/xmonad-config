@@ -22,14 +22,17 @@ Config { overrideRedirect = False
 		    [
                          "-t", "<acstatus>: <left>% - <timeleft>",
                          "--",
+                         --"-c", "charge_full",
                          "-O", "Charging",
-                         "-o", "Battery",
-                         "-L"     , "20",
-                         "-H"     , "80",
-                         "-l"      , "red",
-                         "--high"     , "darkgreen",
+                         "-o", "Battery"
+                         --"-L"      , "40"        -- units: % ,
+                         --"--High"     , "80"        -- units: % ,
+                         --"-l"      , "darkred",
+                         --"-p"      , "green",
+                         --"--normal"   , "darkorange",
+                         --"--high"     , "darkgreen"
 			 --"-a", "bash /home/jik/.xmonad/suspend.sh",
-			 "--lows", "**** CONNNECT CHARGER ****   "
+			 --"--lows", "*************************",
                         ] 10
                      , Run DiskU
                         [("/", "<used>/<size>"), ("/repository", "<used>/<size>")]
@@ -39,7 +42,7 @@ Config { overrideRedirect = False
                         [ "--template", "<volumestatus>"
                         , "--suffix"  , "True"
                         ]
-                    , Run Wireless "wlp9s0" ["--template", "Wifi: <ssid> [<qualitybar>]"] 10
+                    --, Run Wireless "" ["--template", "Wifi: [<qualitybar>] <essid>"] 10
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
                     --, Run Swap [] 10
                     , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
@@ -47,5 +50,5 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %battery% | Disk: %disku% | Vol: %alsa:default:Master% | %cpu% | %memory% | %ESSB%  | %wlp9s0wi% | %date% "
+       , template = "%XMonadLog% }{ %battery% | Disk: %disku% | Vol: %alsa:default:Master% | %cpu% | %memory% | %ESSB%  | %wi% | %date% "
        }
